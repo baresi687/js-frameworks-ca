@@ -1,5 +1,5 @@
 function CheckoutSuccess() {
-  return <div>Checkout success</div>;
+  return <div className={'container'}>Checkout success</div>;
 }
 
 export default CheckoutSuccess;

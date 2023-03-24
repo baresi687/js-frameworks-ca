@@ -1,5 +1,5 @@
 function ProductDetails() {
-  return <div>Product Details</div>;
+  return <div className={'container'}>Product Details</div>;
 }
 
 export default ProductDetails;

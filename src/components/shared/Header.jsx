@@ -4,7 +4,7 @@ function Header() {
   return (
     <>
       <header>
-        <nav>
+        <nav className={'container'}>
           <div>
             <Link to={'/'}>Logo</Link>
           </div>

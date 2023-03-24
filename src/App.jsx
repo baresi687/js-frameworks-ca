@@ -16,7 +16,7 @@ function App() {
           <Route path={'/contact'} element={<Contact />}></Route>
           <Route path={'/cart'} element={<Cart />}></Route>
           <Route path={'/cart/checkout-success'} element={<CheckoutSuccess />}></Route>
-          <Route path={'*'} element={<div>Page not found</div>}></Route>
+          <Route path={'*'} element={<div className={'container'}>Page not found</div>}></Route>
         </Route>
       </Routes>
     </>
