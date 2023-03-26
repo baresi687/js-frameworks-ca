@@ -1,25 +1,29 @@
 .footer {
   background-color: #16629f;
   color: rgba(255, 255, 255, 0.87);
-  padding: 1.5rem 0;
+  padding: 3rem 0;
 
   :global {
     .footer-main {
-      display: flex;
-      flex-wrap: wrap;
+      column-count: 2;
+      column-gap: 5rem;
+      max-width: fit-content;
+      margin: 0 auto;
 
       & > div {
-        flex-basis: 50%;
+        width: fit-content;
+        height: 144px;
+        margin-bottom: 3rem;
       }
 
-      li {
+      & li {
         font-weight: 100;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
       }
     }
 
     .social-media {
-      margin-top: 3rem;
-
       .social-media-icons {
         display: flex;
         gap: 1rem;
@@ -35,7 +39,7 @@
   }
 
   h3 {
-    margin-bottom: 0;
+    margin: 0 0 0.5rem;
   }
 
   h4 {
@@ -48,11 +52,13 @@
   .footer {
     :global {
       .footer-main {
-        gap: 1rem;
+        column-count: revert;
+        max-width: revert;
+        display: flex;
         justify-content: space-between;
 
         & > div {
-          flex-basis: revert;
+          height: revert;
         }
       }
     }
