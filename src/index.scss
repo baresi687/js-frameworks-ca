@@ -21,6 +21,7 @@
 
 body {
   margin: 0;
+  overflow-y: scroll;
 }
 
 ul {
@@ -39,6 +40,10 @@ button {
   background-color: initial;
   padding: 0;
   cursor: pointer;
+
+  &:hover {
+    filter: brightness(105%);
+  }
 }
 
 a {

@@ -1,4 +1,4 @@
-import logo from '../assets/eShop-logo.svg';
+import logo from '../../assets/eShop-logo.svg';
 import styles from './Header.module.scss';
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
