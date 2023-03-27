@@ -6,8 +6,57 @@ section {
   margin: 3rem 0 7rem 0;
 }
 
+h1 {
+  font-size: 2rem;
+}
+
+.loader-container {
+  height: 100vh;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.loader {
+  height: 1.5rem;
+  width: 1.5rem;
+  border: 4px solid lightgray;
+  border-top-color: gray;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.error {
+  background-color: #fed7d7;
+  padding: 0.8rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  display: flex;
+  gap: 0.5rem;
+  margin: 5rem 0 60vh;
+
+  &::before {
+    content: url('../../assets/error-icon.svg');
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @media (min-width: 640px) {
   .container {
+  }
+
+  .error {
+    margin: 5rem auto 60vh;
+    width: fit-content;
   }
 }
 

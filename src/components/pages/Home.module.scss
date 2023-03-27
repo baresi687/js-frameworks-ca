@@ -1,0 +1,29 @@
+.home {
+  :global {
+    .products {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+  }
+}
+
+@media (min-width: 640px) {
+  .home {
+    :global {
+      .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .home {
+    :global {
+      .products {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+  }
+}
