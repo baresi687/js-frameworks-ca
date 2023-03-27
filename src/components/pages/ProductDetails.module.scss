@@ -1,0 +1,33 @@
+.productDetails {
+  :global {
+    .rating {
+      span {
+        color: #008d4b;
+        font-weight: 500;
+      }
+    }
+
+    .price {
+      .old-price {
+        text-decoration: line-through;
+        color: gray;
+        margin: 0 0.5rem;
+      }
+
+      .discount-price {
+        color: #3182ce;
+        font-size: 1.3rem;
+      }
+
+      .savings {
+        display: block;
+        margin: 1rem 0;
+
+        & > span {
+          color: #008d4b;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
