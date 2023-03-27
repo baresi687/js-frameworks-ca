@@ -20,17 +20,19 @@
       overflow: hidden;
     }
 
+    .price {
+      color: #3182ce;
+      font-size: 1.3rem;
+    }
+
     .product-btn {
       display: flex;
       gap: 0.5rem;
 
-      button:hover {
-        filter: revert !important;
-      }
-
       button:last-child:hover {
         background-color: #3182ce !important;
         color: rgba(255, 255, 255, 0.87) !important;
+        filter: revert !important;
       }
     }
   }

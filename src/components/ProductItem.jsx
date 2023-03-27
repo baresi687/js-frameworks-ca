@@ -5,13 +5,13 @@ import styles from './ProductItem.module.scss';
 function ProductItem({ id, title, description, imageUrl, discountedPrice }) {
   const navigate = useNavigate();
   return (
-    <div className={styles.productItem} key={id}>
+    <div className={styles.productItem}>
       <Link to={`/product/${id}`}>
         <img src={imageUrl} alt={title} />
         <h3>{title}</h3>
         <p className={'description'}>{description}</p>
         <p>
-          Price: <strong>NOK {discountedPrice}</strong>
+          Price: <span className={'price'}>${discountedPrice}</span>
         </p>
       </Link>
       <div className={'product-btn'}>

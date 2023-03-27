@@ -4,10 +4,23 @@
 
 section {
   margin: 3rem 0 7rem 0;
+  min-height: 50vh;
 }
 
 h1 {
   font-size: 2rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding-left: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #e2e8f0;
+}
+
+input {
+  height: 40px;
 }
 
 .loader-container {

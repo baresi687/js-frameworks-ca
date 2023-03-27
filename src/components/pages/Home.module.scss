@@ -1,5 +1,19 @@
 .home {
+  margin-top: 3rem;
+
   :global {
+    .search-products {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      align-items: baseline;
+      margin: 2rem 0;
+
+      input {
+        height: 32px;
+      }
+    }
+
     .products {
       display: grid;
       gap: 2rem;
