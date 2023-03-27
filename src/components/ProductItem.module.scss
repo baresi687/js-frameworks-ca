@@ -1,0 +1,39 @@
+.productItem {
+  :global {
+    a {
+      color: #242424;
+      font-weight: revert;
+
+      &:hover {
+        filter: brightness(110%);
+      }
+    }
+
+    img {
+      object-fit: cover;
+      height: 19rem;
+    }
+
+    .description {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .price {
+      color: #3182ce;
+      font-size: 1.3rem;
+    }
+
+    .product-btn {
+      display: flex;
+      gap: 0.5rem;
+
+      button:last-child:hover {
+        background-color: #3182ce !important;
+        color: rgba(255, 255, 255, 0.87) !important;
+        filter: revert !important;
+      }
+    }
+  }
+}
