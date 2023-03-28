@@ -1,9 +1,13 @@
 import Button from './Button.jsx';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './ProductItem.module.scss';
+import { useContext } from 'react';
+import { CartContext } from '../context/CartContext.js';
 
-function ProductItem({ id, title, description, imageUrl, discountedPrice }) {
+function ProductItem({ id, title, description, imageUrl, discountedPrice, object }) {
   const navigate = useNavigate();
+  const { dispatch } = useContext(CartContext);
+
   return (
     <div className={styles.productItem}>
       <Link to={`/product/${id}`}>
@@ -15,7 +19,7 @@ function ProductItem({ id, title, description, imageUrl, discountedPrice }) {
         </p>
       </Link>
       <div className={'product-btn'}>
-        <Button>Add to Cart</Button>
+        <Button onClick={() => dispatch({ type: 'INCREMENT_PRODUCT', payload: object })}>Add to Cart</Button>
         <Button color={'#3182ce'} bgColor={'transparent'} border onClick={() => navigate(`/product/${id}`)}>
           View details
         </Button>
