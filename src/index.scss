@@ -56,3 +56,7 @@ a {
     filter: brightness(60%);
   }
 }
+
+svg {
+  pointer-events: none;
+}
