@@ -32,7 +32,6 @@ export default function addToCartReducer(state, action) {
       } else {
         cart = [...cart.slice(0, productIndex), ...cart.slice(productIndex + 1)];
       }
-      console.log('state: ', state);
 
       return { ...state, cart: cart };
 
