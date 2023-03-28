@@ -24,7 +24,6 @@ function ProductDetails() {
             <div className={'loader'}></div>
           </div>
         )}
-
         <div className={styles.productDetails}>
           <button className={'back-btn'} onClick={() => navigate(-1)}>
             {'<< '}Go back
