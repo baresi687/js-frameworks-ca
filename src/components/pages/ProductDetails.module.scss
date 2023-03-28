@@ -1,0 +1,130 @@
+.productDetails {
+  :global {
+    .back-btn {
+      margin: 1rem 0;
+      color: #3182ce;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    .details-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      .product-image {
+        height: 22rem;
+
+        img {
+          object-fit: cover;
+          height: 100%;
+        }
+      }
+
+      .details {
+        border: 1px solid lightgray;
+        padding: 1.5rem;
+        border-radius: 1rem;
+
+        h2 {
+          margin-top: 0;
+          font-size: 1.1rem;
+        }
+
+        .price {
+          .old-price {
+            text-decoration: line-through;
+            color: gray;
+            margin: 0 0.5rem;
+          }
+
+          .discount-price {
+            color: #3182ce;
+            font-size: 1.3rem;
+          }
+
+          .savings {
+            display: block;
+            margin: 1rem 0;
+
+            & > span {
+              color: #008d4b;
+              font-weight: 500;
+            }
+          }
+        }
+
+        .rating {
+          span {
+            color: #008d4b;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+
+    .reviews {
+      margin: 2.5rem 0 0 0;
+
+      .reviews-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        > div {
+          border: 1px solid lightgray;
+          padding: 1rem;
+          border-radius: 0.5rem;
+
+          span {
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 640px) {
+  .productDetails {
+    :global {
+      .details-container {
+        flex-direction: row;
+        max-height: 328px;
+
+        > div {
+          flex-basis: 50%;
+        }
+
+        .product-image {
+          height: revert;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .productDetails {
+    :global {
+      .details-container {
+        max-height: revert;
+        align-items: flex-start;
+
+        .product-image {
+          height: 28rem;
+        }
+
+        .details {
+          button {
+            width: 160px !important;
+          }
+        }
+      }
+
+      .reviews-container > div {
+        max-width: calc(75% - 1rem);
+      }
+    }
+  }
+}
