@@ -1,14 +1,22 @@
-import { Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
 import Layout from './components/layout/Layout.jsx';
 import Home from './components/pages/Home.jsx';
 import Contact from './components/pages/Contact.jsx';
 import Cart from './components/pages/Cart.jsx';
 import ProductDetails from './components/pages/ProductDetails.jsx';
 import CheckoutSuccess from './components/pages/CheckoutSuccess.jsx';
+import addToCartReducer from './reducers/addToCartReducer.js';
+import { CartContext } from './context/CartContext.js';
+import { useReducer } from 'react';
 
+const initialState = {
+  cart: [],
+};
 function App() {
+  const [state, dispatch] = useReducer(addToCartReducer, initialState);
+
   return (
-    <>
+    <CartContext.Provider value={{ state, dispatch }}>
       <Routes>
         <Route path={'/'} element={<Layout />}>
           <Route index element={<Home />}></Route>
@@ -16,10 +24,20 @@ function App() {
           <Route path={'/contact'} element={<Contact />}></Route>
           <Route path={'/cart'} element={<Cart />}></Route>
           <Route path={'/cart/checkout-success'} element={<CheckoutSuccess />}></Route>
-          <Route path={'*'} element={<div className={'container'}>Page not found</div>}></Route>
+          <Route
+            path={'*'}
+            element={
+              <section>
+                <div style={{ height: '50vh' }} className={'container'}>
+                  <h1>404 Page not found</h1>
+                  <Link to={'/'}>Home</Link>
+                </div>
+              </section>
+            }
+          ></Route>
         </Route>
       </Routes>
-    </>
+    </CartContext.Provider>
   );
 }
 

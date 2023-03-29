@@ -41,7 +41,7 @@ function Home() {
             </div>
             <div className={'products'}>
               {products.length ? (
-                products.map((product) => <ProductItem key={product.id} {...product} />)
+                products.map((product) => <ProductItem key={product.id} object={product} {...product} />)
               ) : (
                 <h3>No products found</h3>
               )}

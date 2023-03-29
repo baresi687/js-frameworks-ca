@@ -1,0 +1,13 @@
+.checkout {
+  :global {
+    .checkout-success-message {
+      padding: 0 2rem;
+      background-color: #c6f6d5;
+      color: #00894a;
+      border: 2px solid #00894a;
+      border-radius: 1rem;
+      margin-bottom: 2rem;
+      max-width: fit-content;
+    }
+  }
+}
