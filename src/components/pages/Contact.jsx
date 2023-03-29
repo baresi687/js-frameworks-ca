@@ -22,12 +22,17 @@ function Contact() {
   } = useForm({
     resolver: yupResolver(schema),
   });
+  const [submitting, setSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   function onSubmit(data) {
-    console.log(data);
-    reset();
-    setIsSubmitted(true);
+    setSubmitting(true);
+    setTimeout(() => {
+      console.log(data);
+      reset();
+      setSubmitting(false);
+      setIsSubmitted(true);
+    }, 500);
   }
 
   return (
@@ -74,7 +79,15 @@ function Contact() {
               />
               {errors.body?.message ? <p>{errors.body?.message}</p> : null}
             </label>
-            <Button type={'submit'}>Submit</Button>
+            <Button type={'submit'}>
+              {submitting ? (
+                <>
+                  <div className={'loader-submit'}></div>Processing ...
+                </>
+              ) : (
+                'Submit'
+              )}
+            </Button>
             {isSubmitted && (
               <div className={'form-submitted'}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
