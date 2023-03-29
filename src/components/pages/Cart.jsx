@@ -39,12 +39,18 @@ function Cart() {
                           Quantity: <b>{product.quantity}</b>
                         </p>
                         <div className={'product-action-btn'}>
-                          <button onClick={() => dispatch({ type: 'DECREMENT_PRODUCT', payload: product })}>
+                          <button
+                            aria-label={'Decrement product quantity'}
+                            onClick={() => dispatch({ type: 'DECREMENT_PRODUCT', payload: product })}
+                          >
                             <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
                               <path fill="#747473" d="M2 26h60v12H2z" />
                             </svg>
                           </button>
-                          <button onClick={() => dispatch({ type: 'INCREMENT_PRODUCT', payload: product })}>
+                          <button
+                            aria-label={'Increment product quantity'}
+                            onClick={() => dispatch({ type: 'INCREMENT_PRODUCT', payload: product })}
+                          >
                             <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
                               <path fill="#747473" d="M38 26V2H26v24H2v12h24v24h12V38h24V26z" />
                             </svg>
@@ -55,6 +61,7 @@ function Cart() {
                         Price: <span className={'price'}>${productPrice.toFixed(2)}</span>
                       </p>
                       <button
+                        aria-label={'Remove product from cart'}
                         className={'remove-product-btn'}
                         onClick={() => dispatch({ type: 'REMOVE_PRODUCT', payload: product })}
                       >

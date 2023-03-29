@@ -45,7 +45,7 @@ function Footer() {
           <div className={'social-media'}>
             <h4>Follow us</h4>
             <div className={'social-media-icons'}>
-              <button>
+              <button aria-label="Our Facebook page">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                   <path
                     fill="rgba(255, 255, 255, 0.87)"
@@ -53,7 +53,7 @@ function Footer() {
                   />
                 </svg>
               </button>
-              <button>
+              <button aria-label="Our Twitter">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                   <path
                     fill="rgba(255, 255, 255, 0.87)"
@@ -61,7 +61,7 @@ function Footer() {
                   />
                 </svg>
               </button>
-              <button>
+              <button aria-label="Our Instagram">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256">
                   <path
                     fill="rgba(255, 255, 255, 0.87)"
