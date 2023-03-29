@@ -37,6 +37,17 @@ input {
   border-top-color: gray;
   border-radius: 50%;
   animation: spin 1s linear infinite;
+
+  &-submit {
+    @extend .loader;
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    height: 1rem;
+    width: 1rem;
+    border: 2px solid;
+    border-top: 2px solid #3b82f6;
+  }
 }
 
 .error {

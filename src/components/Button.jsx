@@ -1,5 +1,6 @@
 function Button({ bgColor, color, border, children, onClick }) {
   const styles = {
+    position: 'relative',
     padding: '0.5rem 0',
     color: color ? color : 'rgba(255, 255, 255, 0.87)',
     backgroundColor: bgColor ? bgColor : '#1d4ed8',
