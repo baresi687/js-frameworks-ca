@@ -26,7 +26,7 @@ function CartIcon() {
 
   return (
     <>
-      <button style={{ position: 'relative', display: 'block' }}>
+      <button style={{ position: 'relative', display: 'block' }} aria-label="Cart page">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
           <path
             fill="currentColor"
