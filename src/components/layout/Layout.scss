@@ -38,7 +38,7 @@ input {
   border-radius: 50%;
   animation: spin 1s linear infinite;
 
-  &-submit {
+  &-processing {
     @extend .loader;
     position: absolute;
     top: 8px;

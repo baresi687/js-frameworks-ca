@@ -82,7 +82,7 @@ function Contact() {
             <Button type={'submit'}>
               {submitting ? (
                 <>
-                  <div className={'loader-submit'}></div>Processing ...
+                  <div className={'loader-processing'}></div>Processing ...
                 </>
               ) : (
                 'Submit'
