@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext.js';
 import styles from './Cart.module.scss';
@@ -11,6 +11,12 @@ function Cart() {
     total += product.discountedPrice * product.quantity;
     return total;
   }, 0);
+  const navigate = useNavigate();
+
+  function handleCheckout() {
+    dispatch({ type: 'CLEAR_CART' });
+    navigate('/cart/checkout-success', { replace: true });
+  }
 
   return (
     <section>
@@ -73,7 +79,7 @@ function Cart() {
               <strong>
                 Total: <span className={'sum'}>${totalSum.toFixed(2)}</span>
               </strong>
-              <Button>Checkout</Button>
+              <Button onClick={handleCheckout}>Checkout</Button>
             </div>
           ) : null}
         </div>

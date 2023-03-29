@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
 import Layout from './components/layout/Layout.jsx';
 import Home from './components/pages/Home.jsx';
 import Contact from './components/pages/Contact.jsx';
@@ -24,7 +24,17 @@ function App() {
           <Route path={'/contact'} element={<Contact />}></Route>
           <Route path={'/cart'} element={<Cart />}></Route>
           <Route path={'/cart/checkout-success'} element={<CheckoutSuccess />}></Route>
-          <Route path={'*'} element={<div className={'container'}>Page not found</div>}></Route>
+          <Route
+            path={'*'}
+            element={
+              <section>
+                <div style={{ height: '50vh' }} className={'container'}>
+                  <h1>404 Page not found</h1>
+                  <Link to={'/'}>Home</Link>
+                </div>
+              </section>
+            }
+          ></Route>
         </Route>
       </Routes>
     </CartContext.Provider>
