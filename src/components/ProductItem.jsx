@@ -20,7 +20,7 @@ function ProductItem({ id, title, description, imageUrl, discountedPrice, object
       </Link>
       <div className={'product-btn'}>
         <Button onClick={() => dispatch({ type: 'INCREMENT_PRODUCT', payload: object })}>Add to Cart</Button>
-        <Button color={'#3182ce'} bgColor={'transparent'} border onClick={() => navigate(`/product/${id}`)}>
+        <Button color={'#1d4ed8'} bgColor={'transparent'} border onClick={() => navigate(`/product/${id}`)}>
           View details
         </Button>
       </div>

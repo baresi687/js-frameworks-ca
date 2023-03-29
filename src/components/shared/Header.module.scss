@@ -22,6 +22,10 @@
       & > .logo {
         width: 5rem;
         height: 1.5rem;
+
+        img {
+          pointer-events: none;
+        }
       }
 
       .open-menu {
@@ -33,7 +37,7 @@
       transform: translate(-102%);
       position: absolute;
       top: 48px;
-      background-color: #16629f;
+      background-color: #1e3a8a;
       width: 100%;
       transition: transform 0.2s ease-in-out;
 

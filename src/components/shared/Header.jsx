@@ -19,17 +19,17 @@ function Header() {
             <NavLink to={'/'} className={'logo'}>
               <img src={logo} alt={'Home'} />
             </NavLink>
-            <button className="open-menu" onClick={handleHamburgerMenu}>
+            <button aria-label={'open navigation menu'} className="open-menu" onClick={handleHamburgerMenu}>
               {showMenu ? (
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M2.4 24L0 21.6L9.6 12L0 2.4L2.4 0L12 9.6L21.6 0L24 2.4L14.4 12L24 21.6L21.6 24L12 14.4L2.4 24Z"
-                    fill="#3182CE"
+                    fill="#1d4ed8"
                   />
                 </svg>
               ) : (
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M0 0V4.8H24V0H0ZM0 9.6V14.4H24V9.6H0ZM0 19.2V24H24V19.2H0Z" fill="#3182CE" />
+                  <path d="M0 0V4.8H24V0H0ZM0 9.6V14.4H24V9.6H0ZM0 19.2V24H24V19.2H0Z" fill="#1d4ed8" />
                 </svg>
               )}
             </button>
