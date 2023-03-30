@@ -8,13 +8,20 @@ function ProductItem({ id, title, description, imageUrl, discountedPrice, object
   const navigate = useNavigate();
   const { dispatch } = useContext(CartContext);
   const [isAddToCart, setIsAddToCart] = useState(false);
+  const [isCheckmark, setIsCheckmark] = useState(false);
 
   function handleAddToCart(product) {
     setIsAddToCart(true);
     setTimeout(() => {
       dispatch({ type: 'INCREMENT_PRODUCT', payload: product });
       setIsAddToCart(false);
-    }, 300);
+    }, 400);
+    setTimeout(() => {
+      setIsCheckmark(true);
+    }, 400);
+    setTimeout(() => {
+      setIsCheckmark(false);
+    }, 1000);
   }
 
   return (
@@ -31,12 +38,19 @@ function ProductItem({ id, title, description, imageUrl, discountedPrice, object
         <Button onClick={() => handleAddToCart(object)}>
           {isAddToCart ? (
             <>
-              <div className={'loader-processing'}></div>
-              Adding..
+              <div className={'loader-processing'}></div>Adding..
             </>
           ) : (
-            'Add to Cart'
+            ''
           )}
+          {isCheckmark ? (
+            <>
+              <div className={'check'}></div>Added
+            </>
+          ) : (
+            ''
+          )}
+          {!isAddToCart && !isCheckmark && 'Add to Cart'}
         </Button>
         <Button
           padding={'6px 0'}
