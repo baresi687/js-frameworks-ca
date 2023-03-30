@@ -3,15 +3,14 @@ import { useApi } from '../../hooks/useApi.js';
 import { API_BASE_URL } from '../../settings/api.js';
 import styles from './ProductDetails.module.scss';
 import Button from '../Button.jsx';
-import { useContext } from 'react';
-import { CartContext } from '../../context/CartContext.js';
+import { useAddToCart } from '../../hooks/useAddToCart.js';
 
 function ProductDetails() {
   const { id } = useParams();
   const { data, isLoading, isError } = useApi(API_BASE_URL + '/' + id);
   const { title, description, imageUrl, discountedPrice, price, rating, reviews } = data;
   const discount = price - discountedPrice;
-  const { dispatch } = useContext(CartContext);
+  const { isAddToCart, isCheckmark, handleAddToCart } = useAddToCart();
   const navigate = useNavigate();
 
   if (isError) {
@@ -54,7 +53,23 @@ function ProductDetails() {
                   )}
                 </p>
               </div>
-              <Button onClick={() => dispatch({ type: 'INCREMENT_PRODUCT', payload: data })}>Add to Cart</Button>
+              <Button onClick={() => handleAddToCart(data)}>
+                {isAddToCart ? (
+                  <>
+                    <span className={'loader-processing'}></span>Adding..
+                  </>
+                ) : (
+                  ''
+                )}
+                {isCheckmark ? (
+                  <>
+                    <span className={'check'}></span>Added
+                  </>
+                ) : (
+                  ''
+                )}
+                {!isAddToCart && !isCheckmark && 'Add to Cart'}
+              </Button>
             </div>
           </div>
           <div className={'reviews'}>

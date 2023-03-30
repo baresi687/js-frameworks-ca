@@ -1,12 +1,11 @@
 import Button from './Button.jsx';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './ProductItem.module.scss';
-import { useContext } from 'react';
-import { CartContext } from '../context/CartContext.js';
+import { useAddToCart } from '../hooks/useAddToCart.js';
 
 function ProductItem({ id, title, description, imageUrl, discountedPrice, object }) {
+  const { isAddToCart, isCheckmark, handleAddToCart } = useAddToCart();
   const navigate = useNavigate();
-  const { dispatch } = useContext(CartContext);
 
   return (
     <div className={styles.productItem}>
@@ -19,8 +18,30 @@ function ProductItem({ id, title, description, imageUrl, discountedPrice, object
         </p>
       </Link>
       <div className={'product-btn'}>
-        <Button onClick={() => dispatch({ type: 'INCREMENT_PRODUCT', payload: object })}>Add to Cart</Button>
-        <Button color={'#1d4ed8'} bgColor={'transparent'} border onClick={() => navigate(`/product/${id}`)}>
+        <Button onClick={() => handleAddToCart(object)}>
+          {isAddToCart ? (
+            <>
+              <span className={'loader-processing'}></span>Adding..
+            </>
+          ) : (
+            ''
+          )}
+          {isCheckmark ? (
+            <>
+              <span className={'check'}></span>Added
+            </>
+          ) : (
+            ''
+          )}
+          {!isAddToCart && !isCheckmark && 'Add to Cart'}
+        </Button>
+        <Button
+          padding={'6px 0'}
+          color={'#1d4ed8'}
+          bgColor={'transparent'}
+          border
+          onClick={() => navigate(`/product/${id}`)}
+        >
           View details
         </Button>
       </div>

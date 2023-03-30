@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { CartContext } from '../../context/CartContext.js';
 import styles from './Cart.module.scss';
 import Button from '../Button.jsx';
@@ -12,10 +12,15 @@ function Cart() {
     return total;
   }, 0);
   const navigate = useNavigate();
+  const [isCheckingOut, setIsCheckingOut] = useState(false);
 
   function handleCheckout() {
-    dispatch({ type: 'CLEAR_CART' });
-    navigate('/cart/checkout-success', { replace: true });
+    setIsCheckingOut(true);
+    setTimeout(() => {
+      dispatch({ type: 'CLEAR_CART' });
+      setIsCheckingOut(false);
+      navigate('/cart/checkout-success', { replace: true });
+    }, 500);
   }
 
   return (
@@ -86,7 +91,15 @@ function Cart() {
               <strong>
                 Total: <span className={'sum'}>${totalSum.toFixed(2)}</span>
               </strong>
-              <Button onClick={handleCheckout}>Checkout</Button>
+              <Button onClick={handleCheckout}>
+                {isCheckingOut ? (
+                  <>
+                    <span className={'loader-processing'}></span>Processing..
+                  </>
+                ) : (
+                  'Checkout'
+                )}
+              </Button>
             </div>
           ) : null}
         </div>
