@@ -1,28 +1,11 @@
 import Button from './Button.jsx';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './ProductItem.module.scss';
-import { useContext, useState } from 'react';
-import { CartContext } from '../context/CartContext.js';
+import { useAddToCart } from '../hooks/useAddToCart.js';
 
 function ProductItem({ id, title, description, imageUrl, discountedPrice, object }) {
+  const { isAddToCart, isCheckmark, handleAddToCart } = useAddToCart();
   const navigate = useNavigate();
-  const { dispatch } = useContext(CartContext);
-  const [isAddToCart, setIsAddToCart] = useState(false);
-  const [isCheckmark, setIsCheckmark] = useState(false);
-
-  function handleAddToCart(product) {
-    setIsAddToCart(true);
-    setTimeout(() => {
-      dispatch({ type: 'INCREMENT_PRODUCT', payload: product });
-      setIsAddToCart(false);
-    }, 400);
-    setTimeout(() => {
-      setIsCheckmark(true);
-    }, 400);
-    setTimeout(() => {
-      setIsCheckmark(false);
-    }, 1000);
-  }
 
   return (
     <div className={styles.productItem}>
@@ -38,14 +21,14 @@ function ProductItem({ id, title, description, imageUrl, discountedPrice, object
         <Button onClick={() => handleAddToCart(object)}>
           {isAddToCart ? (
             <>
-              <div className={'loader-processing'}></div>Adding..
+              <span className={'loader-processing'}></span>Adding..
             </>
           ) : (
             ''
           )}
           {isCheckmark ? (
             <>
-              <div className={'check'}></div>Added
+              <span className={'check'}></span>Added
             </>
           ) : (
             ''
