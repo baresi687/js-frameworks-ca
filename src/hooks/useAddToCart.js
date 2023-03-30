@@ -17,7 +17,7 @@ export function useAddToCart() {
     }, 400);
     setTimeout(() => {
       setIsCheckmark(false);
-    }, 1000);
+    }, 900);
   }
 
   return { isAddToCart, isCheckmark, handleAddToCart };
