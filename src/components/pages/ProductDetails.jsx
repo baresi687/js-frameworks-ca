@@ -16,19 +16,20 @@ function ProductDetails() {
   const { isAddToCart, isCheckmark, handleAddToCart } = useAddToCart();
   const navigate = useNavigate();
   const ratingTemplate = Array(5).fill(faStarEmpty);
-  const averageRating = [...ratingTemplate];
+  const averageRating = handleRating(rating, ratingTemplate);
 
   function handleRating(rating, array) {
+    const ratedArr = [...array];
+
     for (let i = 0; i < Math.trunc(rating); i++) {
-      array[i] = faStar;
+      ratedArr[i] = faStar;
     }
 
     if (!Number.isInteger(rating)) {
-      array[Math.trunc(rating)] = faStarHalfStroke;
+      ratedArr[Math.trunc(rating)] = faStarHalfStroke;
     }
+    return ratedArr;
   }
-
-  handleRating(rating, averageRating);
 
   if (isError) {
     return <div className={'error'}>Something went wrong.. please try again later</div>;
@@ -105,9 +106,7 @@ function ProductDetails() {
             <div className={'reviews-container'}>
               {reviews && reviews.length ? (
                 reviews.map(({ username, rating, description }, index) => {
-                  const userRating = [...ratingTemplate];
-                  handleRating(rating, userRating);
-
+                  const userRating = handleRating(rating, ratingTemplate);
                   return (
                     <div key={index}>
                       <div>
