@@ -4,6 +4,9 @@ import { API_BASE_URL } from '../../settings/api.js';
 import styles from './ProductDetails.module.scss';
 import Button from '../Button.jsx';
 import { useAddToCart } from '../../hooks/useAddToCart.js';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar, faStarHalfStroke } from '@fortawesome/free-solid-svg-icons';
+import { faStar as faStarEmpty } from '@fortawesome/free-regular-svg-icons';
 
 function ProductDetails() {
   const { id } = useParams();
@@ -12,6 +15,20 @@ function ProductDetails() {
   const discount = price - discountedPrice;
   const { isAddToCart, isCheckmark, handleAddToCart } = useAddToCart();
   const navigate = useNavigate();
+  const ratingTemplate = Array(5).fill(faStarEmpty);
+  const averageRating = [...ratingTemplate];
+
+  function handleRating(rating, array) {
+    for (let i = 0; i < Math.trunc(rating); i++) {
+      array[i] = faStar;
+    }
+
+    if (!Number.isInteger(rating)) {
+      array[Math.trunc(rating)] = faStarHalfStroke;
+    }
+  }
+
+  handleRating(rating, averageRating);
 
   if (isError) {
     return <div className={'error'}>Something went wrong.. please try again later</div>;
@@ -36,7 +53,18 @@ function ProductDetails() {
             </div>
             <div className={'details'}>
               <h2>{description}</h2>
-              <p className={'rating'}>Rating: {rating > 0 ? <span>{rating} stars</span> : 'Not rated'}</p>
+              <div className={'rating'}>
+                <p>Rating: </p>
+                {rating > 0 ? (
+                  <div>
+                    {averageRating.map((item, index) => (
+                      <FontAwesomeIcon className={'rating-star'} key={index} icon={item} />
+                    ))}
+                  </div>
+                ) : (
+                  'Not rated'
+                )}
+              </div>
               <div className={'price'}>
                 <p>
                   Price:
@@ -77,11 +105,19 @@ function ProductDetails() {
             <div className={'reviews-container'}>
               {reviews && reviews.length ? (
                 reviews.map(({ username, rating, description }, index) => {
+                  const userRating = [...ratingTemplate];
+                  handleRating(rating, userRating);
+
                   return (
                     <div key={index}>
-                      <b>
-                        {username} <span>rated this {rating} stars</span>
-                      </b>
+                      <div>
+                        <b>{username}</b>
+                        <span>
+                          {userRating.map((item, index) => (
+                            <FontAwesomeIcon className={'rating-star'} key={index} icon={item} />
+                          ))}
+                        </span>
+                      </div>
                       <p>{description}</p>
                     </div>
                   );
