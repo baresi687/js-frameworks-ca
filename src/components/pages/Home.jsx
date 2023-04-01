@@ -27,27 +27,28 @@ function Home() {
     <section>
       <div className={'container'}>
         <h1>Home</h1>
-        {isLoading && (
+        {isLoading ? (
           <div className={'loader-container'}>
             <div className={'loader'}></div>
           </div>
-        )}
-        <div className={styles.home}>
-          <div className={'products-container'}>
-            <h2>All Products</h2>
-            <div className={'search-products'}>
-              <label htmlFor={'search'}>Search:</label>
-              <input name={'search'} placeholder={'Search products'} onKeyUp={handleSearch} />
-            </div>
-            <div className={'products'}>
-              {products.length ? (
-                products.map((product) => <ProductItem key={product.id} object={product} {...product} />)
-              ) : (
-                <h3>No products found</h3>
-              )}
+        ) : (
+          <div className={styles.home}>
+            <div className={'products-container'}>
+              <h2>All Products</h2>
+              <div className={'search-products'}>
+                <label htmlFor={'search'}>Search:</label>
+                <input name={'search'} placeholder={'Search products'} onKeyUp={handleSearch} />
+              </div>
+              <div className={'products'}>
+                {products.length ? (
+                  products.map((product) => <ProductItem key={product.id} object={product} {...product} />)
+                ) : (
+                  <h3>No products found</h3>
+                )}
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );
