@@ -1,6 +1,5 @@
 import { ScrollRestoration } from 'react-router-dom';
 import Layout from './components/layout/Layout.jsx';
-
 import addToCartReducer from './reducers/addToCartReducer.js';
 import { CartContext } from './context/CartContext.js';
 import { useReducer } from 'react';
