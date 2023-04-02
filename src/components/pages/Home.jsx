@@ -29,7 +29,7 @@ function Home() {
 
   return (
     <section>
-      <div className={'container'}>
+      <div className={'container height-min-content'}>
         <h1>Home</h1>
         {isLoading ? (
           <div className={'loader-container'}>
@@ -43,7 +43,7 @@ function Home() {
                 <label htmlFor={'search'}>Search:</label>
                 <input name={'search'} placeholder={'Search products'} onKeyUp={handleSearch} />
               </div>
-              <div className={'products'}>
+              <div className={'products '}>
                 {products.length ? (
                   products.map((product) => <ProductItem key={product.id} object={product} {...product} />)
                 ) : (
