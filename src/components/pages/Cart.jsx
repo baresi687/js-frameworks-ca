@@ -25,7 +25,7 @@ function Cart() {
 
   return (
     <section>
-      <div className={'container'}>
+      <div className={'container height-min-content'}>
         <h1>Cart</h1>
         <div className={styles.cart}>
           {cart.length > 0 ? (

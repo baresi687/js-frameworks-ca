@@ -72,7 +72,7 @@ input {
   font-size: 0.95rem;
   display: flex;
   gap: 0.5rem;
-  margin: 5rem 0 60vh;
+  margin: 0 auto;
 
   &::before {
     content: url('../../assets/error-icon.svg');
@@ -95,7 +95,6 @@ input {
   }
 
   .error {
-    margin: 5rem auto 60vh;
     width: fit-content;
   }
 }

@@ -32,7 +32,11 @@ function ProductDetails() {
   }
 
   if (isError) {
-    return <div className={'error'}>Something went wrong.. please try again later</div>;
+    return (
+      <section className={'height-min-content'}>
+        <div className={'error'}>Something went wrong.. please try again later</div>
+      </section>
+    );
   }
 
   return (
