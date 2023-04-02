@@ -23,6 +23,10 @@ input {
   height: 40px;
 }
 
+.height-min-content {
+  min-height: 50vh;
+}
+
 .loader-container {
   min-height: 100vh;
   margin: 0 auto;

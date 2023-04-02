@@ -37,7 +37,7 @@ function Contact() {
 
   return (
     <section className={styles.contact}>
-      <div className={'container'}>
+      <div className={'container height-min-content'}>
         <h1>Contact us</h1>
         <div className={'contact-container'}>
           <form onSubmit={handleSubmit(onSubmit)} onBlur={() => setIsSubmitted(false)}>
