@@ -18,20 +18,16 @@ function ProductItem({ id, title, description, imageUrl, discountedPrice, object
         </p>
       </Link>
       <div className={'product-btn'}>
-        <Button onClick={() => handleAddToCart(object)}>
-          {isAddToCart ? (
+        <Button onClick={(e) => handleAddToCart(object, e)}>
+          {isAddToCart && (
             <>
               <span className={'loader-processing'}></span>Adding..
             </>
-          ) : (
-            ''
           )}
-          {isCheckmark ? (
+          {isCheckmark && (
             <>
               <span className={'check'}></span>Added
             </>
-          ) : (
-            ''
           )}
           {!isAddToCart && !isCheckmark && 'Add to Cart'}
         </Button>

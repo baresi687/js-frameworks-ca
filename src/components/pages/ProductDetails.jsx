@@ -86,20 +86,16 @@ function ProductDetails() {
                   )}
                 </p>
               </div>
-              <Button onClick={() => handleAddToCart(data)}>
-                {isAddToCart ? (
+              <Button onClick={(e) => handleAddToCart(data, e)}>
+                {isAddToCart && (
                   <>
                     <span className={'loader-processing'}></span>Adding..
                   </>
-                ) : (
-                  ''
                 )}
-                {isCheckmark ? (
+                {isCheckmark && (
                   <>
                     <span className={'check'}></span>Added
                   </>
-                ) : (
-                  ''
                 )}
                 {!isAddToCart && !isCheckmark && 'Add to Cart'}
               </Button>
