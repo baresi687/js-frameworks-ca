@@ -43,7 +43,7 @@ function Home() {
                 <label htmlFor={'search'}>Search:</label>
                 <input name={'search'} placeholder={'Search products'} onKeyUp={handleSearch} />
               </div>
-              <div className={'products '}>
+              <div className={'products'}>
                 {products.length ? (
                   products.map((product) => <ProductItem key={product.id} object={product} {...product} />)
                 ) : (
