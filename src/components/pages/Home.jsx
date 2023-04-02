@@ -29,7 +29,7 @@ function Home() {
 
   return (
     <section>
-      <div className={'container'}>
+      <div className={'container height-min-content'}>
         <h1>Home</h1>
         {isLoading ? (
           <div className={'loader-container'}>
