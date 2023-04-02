@@ -4,7 +4,7 @@ import styles from './CheckoutSuccess.module.scss';
 function CheckoutSuccess() {
   return (
     <section>
-      <div className={'container'}>
+      <div className={'container height-min-content'}>
         <h1>Checkout</h1>
         <div className={styles.checkout}>
           <div className={'checkout-success-message'}>
