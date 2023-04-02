@@ -3,7 +3,7 @@
 }
 
 section {
-  margin: 3rem 0 7rem 0;
+  margin: 3rem 0;
 }
 
 h1 {
@@ -91,7 +91,8 @@ input {
 }
 
 @media (min-width: 640px) {
-  .container {
+  section {
+    margin: 3rem 0 7rem 0;
   }
 
   .error {

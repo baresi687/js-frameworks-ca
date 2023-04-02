@@ -3,7 +3,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import Button from '../Button.jsx';
 import styles from './Contact.module.scss';
-import contactUs from '../../assets/contact-us.jpg';
 import { useState } from 'react';
 
 const schema = yup.object({
@@ -97,7 +96,7 @@ function Contact() {
               </div>
             )}
           </form>
-          <img src={contactUs} alt={'Contact us'} />
+          <div className={'contact-image'}></div>
         </div>
       </div>
     </section>

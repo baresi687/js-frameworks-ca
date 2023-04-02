@@ -88,9 +88,9 @@ function Cart() {
           )}
           {cart.length > 0 ? (
             <div className={'total-checkout-container'}>
-              <strong>
+              <p>
                 Total: <span className={'sum'}>${totalSum.toFixed(2)}</span>
-              </strong>
+              </p>
               <Button onClick={handleCheckout}>
                 {isCheckingOut ? (
                   <>
