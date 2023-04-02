@@ -5,9 +5,15 @@
       flex-direction: column;
       gap: 3rem;
       overflow: hidden;
-      margin: 3rem 0;
+      margin-top: 3rem;
 
-      & > img {
+      & > .contact-image {
+        background-image: url(/src/assets/contact-us.jpg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 27rem;
+        width: 100%;
         border-radius: 0.5rem;
       }
     }
@@ -48,15 +54,14 @@
     :global {
       .contact-container {
         flex-direction: row;
+        gap: 2rem;
 
         & > form {
           min-width: 320px;
         }
 
-        & > img {
-          object-fit: cover;
-          max-height: 20.2rem;
-          min-width: 0;
+        & > .contact-image {
+          height: inherit;
         }
       }
     }
